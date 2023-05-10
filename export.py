@@ -126,7 +126,7 @@ def export_descriptor(config, output_dir, args):
         # img = img_0
         def get_pts_desc_from_agent(val_agent, img, device="cpu"):
             """
-            pts: list [numpy (3, N)]
+            pts: list [numpy (3, N)] # (x, y, confidance)*N
             desc: list [numpy (256, N)]
             """
             heatmap_batch = val_agent.run(

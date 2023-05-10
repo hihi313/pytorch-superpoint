@@ -29,12 +29,12 @@ class SuperPointNet_gauss2(torch.nn.Module):
         # Detector Head.
         self.convPa = torch.nn.Conv2d(c4, c5, kernel_size=3, stride=1, padding=1)
         self.bnPa = nn.BatchNorm2d(c5)
-        self.convPb = torch.nn.Conv2d(c5, det_h, kernel_size=1, stride=1, padding=0)
+        self.convPb = torch.nn.Conv2d(c5, det_h, kernel_size=1, stride=1, padding=0) # N*65*H/8*W/8
         self.bnPb = nn.BatchNorm2d(det_h)
         # Descriptor Head.
         self.convDa = torch.nn.Conv2d(c4, c5, kernel_size=3, stride=1, padding=1)
         self.bnDa = nn.BatchNorm2d(c5)
-        self.convDb = torch.nn.Conv2d(c5, d1, kernel_size=1, stride=1, padding=0)
+        self.convDb = torch.nn.Conv2d(c5, d1, kernel_size=1, stride=1, padding=0) # N*256*H/8*W/8
         self.bnDb = nn.BatchNorm2d(d1)
         self.output = None
 

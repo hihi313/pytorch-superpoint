@@ -3,6 +3,7 @@
 # PointTracker is from Daniel's repo.
 """
 
+import cv2
 import numpy as np
 import torch
 from torch.autograd import Variable
@@ -13,6 +14,18 @@ import torch.nn.functional as F
 import torch.utils.data
 from tqdm import tqdm
 
+
+# Jet colormap for visualization.
+myjet = np.array([[0.        , 0.        , 0.5       ],
+                  [0.        , 0.        , 0.99910873],
+                  [0.        , 0.37843137, 1.        ],
+                  [0.        , 0.83333333, 1.        ],
+                  [0.30044276, 1.        , 0.66729918],
+                  [0.66729918, 1.        , 0.30044276],
+                  [1.        , 0.90123457, 0.        ],
+                  [1.        , 0.48002905, 0.        ],
+                  [0.99910873, 0.07334786, 0.        ],
+                  [0.5       , 0.        , 0.        ]])
 
 def labels2Dto3D(cell_size, labels):
     H, W = labels.shape[0], labels.shape[1]

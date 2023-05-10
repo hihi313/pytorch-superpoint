@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.2-base-ubuntu18.04
+FROM nvidia/cuda:11.1.1-cudnn8-devel-ubuntu18.04
 
 # setup environment
 ENV LANG C.UTF-8
@@ -27,8 +27,8 @@ COPY ./${PY_DPDS} ./
 RUN python3 -m pip install --upgrade pip setuptools \
     && python3 -m pip install \
     --no-cache-dir \
+    --find-links https://download.pytorch.org/whl/cu111/torch_stable.html \
     --requirement ${PY_DPDS}
-    # --extra-index-url https://download.pytorch.org/whl/cu117 \
 
 # Clean up
 RUN apt autoremove --purge \

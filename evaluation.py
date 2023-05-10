@@ -74,7 +74,7 @@ def to3dim(img):
 def evaluate(args, **options):
     # path = '/home/yoyee/Documents/SuperPoint/superpoint/logs/outputs/superpoint_coco/'
     path = args.path
-    files = find_files_with_ext(path)
+    files = find_files_with_ext(path) # get all .npz files
     correctness = []
     est_H_mean_dist = []
     repeatability = []

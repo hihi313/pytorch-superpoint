@@ -54,9 +54,9 @@ class Coco(data.Dataset):
         self.action = 'train' if task == 'train' else 'val'
 
         # get files
-        base_path = Path(DATA_PATH, 'COCO/' + task + '2014/')
+        base_path = Path(DATA_PATH, 'COCO/' + task + '/')
         # base_path = Path(DATA_PATH, 'COCO_small/' + task + '2014/')
-        image_paths = list(base_path.iterdir())
+        image_paths = list(sorted(base_path.iterdir(), reverse=False))
         # if config['truncate']:
         #     image_paths = image_paths[:config['truncate']]
         names = [p.stem for p in image_paths]

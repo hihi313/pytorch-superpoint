@@ -3,8 +3,8 @@ data:
     dataset: 'hpatches'  # 'coco' 'hpatches'
     alteration: 'all'  # 'all' 'i' 'v'
     preprocessing:
-        resize: [240, 320]  # [240, 320] for HPatches and False for coco
-#        resize: [480, 640]  # [240, 320] for HPatches and False for coco
+        # resize: [240, 320]  # [240, 320] for HPatches and False for coco
+       resize: [480, 640]  # [240, 320] for HPatches and False for coco
     # labels: magicpoint_synth20_homoAdapt100_coco/predictions # for coco
 
 front_end_model: 'Val_model_heatmap'  # 'Train_model_frontend'
