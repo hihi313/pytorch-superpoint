@@ -1,0 +1,66 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Export COCO",
+            "type": "python",
+            "request": "launch",
+            "program": "/app/export.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "export_detector_homoAdapt", //export task
+                "configs/magicpoint_coco_export.yaml", //config file
+                "magicpoint_synth_homoAdapt_my", //export folder
+                // "--outputImg",
+            ]
+        },
+        {
+            "name": "Train COCO",
+            "type": "python",
+            "request": "launch",
+            "program": "/app/train4.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "train_joint", //train task
+                "configs/superpoint_coco_train_heatmap.yaml", //config file
+                "superpoint_coco", //export folder
+                "--eval",
+                "--debug",
+            ]
+        },
+        {
+            "name": "Export HPatches",
+            "type": "python",
+            "request": "launch",
+            "program": "/app/export.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "export_descriptor", //export task
+                "configs/magicpoint_repeatability_heatmap.yaml", //config file
+                "superpoint_hpatches_test", //export folder
+            ]
+        },
+        {
+            "name": "Testing",
+            "type": "python",
+            "request": "launch",
+            "program": "/app/test.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "/datasets/VSLAM/TartanAir/carwelding_sample_P007/Easy/P007/image_left",
+                "--weights_path", "/app/logs/superpoint_coco/checkpoints/superPointNet_80000_checkpoint.pth.tar",
+                // "--cuda", 
+                "--show_extra",
+                "--H" , "240",
+                "--W" , "320",
+            ]
+        },
+    ]
+}
