@@ -62,5 +62,16 @@
                 "--W" , "320",
             ]
         },
+        {
+            "name": "Export model",
+            "type": "python",
+            "request": "launch",
+            "program": "/app/export_model.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--model-path" , "/app/logs/superpoint_coco/checkpoints/superPointNet_80000_checkpoint.pth.tar",
+            ]
+        },
     ]
 }
