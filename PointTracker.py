@@ -157,7 +157,7 @@ class PointTracker(object):
     self.tracks = self.tracks[keep_rows, :]
     # Store the last descriptors.
     self.last_desc = desc.copy()
-    return
+    return matches
 
   def get_tracks(self, min_length):
     """ Retrieve point tracks of a given minimum length.
