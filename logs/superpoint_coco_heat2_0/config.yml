@@ -42,12 +42,13 @@ data:
     params:
       GaussianBlur:
         sigma: 0.2
-  labels: magicpoint_synth20_homoAdapt100_coco_f1/predictions
-  name: coco
+  labels: /app/logs/magicpoint_synth_homoAdapt_coco/predictions
   preprocessing:
     resize:
     - 240
     - 320
+  root: null
+  root_split_txt: null
   warped_pair:
     enable: true
     params:
@@ -88,10 +89,14 @@ model:
       method: 2d
       num_masked_non_matches_per_match: 100
       num_matching_attempts: 1000
+pretrained: null
 reset_iter: true
 retrain: true
-save_interval: 2000
+save_interval: 200
 tensorboard_interval: 200
-train_iter: 170000
+train_iter: 200000
+training:
+  workers_train: 4
+  workers_val: 2
 validation_interval: 200
-validation_size: 10
+validation_size: 5

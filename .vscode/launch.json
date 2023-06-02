@@ -28,7 +28,7 @@
             "args": [
                 "train_joint", //train task
                 "configs/superpoint_coco_train_heatmap.yaml", //config file
-                "superpoint_coco", //export folder
+                "superpoint_coco", //"superpoint_coco_heat2_0",  //export folder
                 "--eval",
                 "--debug",
             ]
